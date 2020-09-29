@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "b8f58e53-541c-41f0-94f7-69bea807f9e3",
+		"name": "applications-monitoring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAppsFromOperator",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9573ad73-52f5-4b74-8055-00b734b7bfcd",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "3",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/operator/apps/page/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"operator",
+						"apps",
+						"page",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAppsFromUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b4b5061-1b0b-42ee-8899-34d324483a87",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/apps/page/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"apps",
+						"page",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllUsers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed7ad3cb-b52c-4e51-87c6-07949644ee9e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "3",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/admin/users/page/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"users",
+						"page",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getApp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "34d06f2a-2ba5-44f6-8fcc-f7fc0cb51591",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/apps/4",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"apps",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createApp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "52ecfd51-7a88-432a-9ad3-974cd4dde7d1",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"guten tag\",\r\n    \"status\": \"DRAFT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/apps",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"apps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateApp",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d4537486-57b7-47bc-8729-63e86ed84c26",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "GUTEN TAG!!!"
+				},
+				"url": {
+					"raw": "{{base_url}}/apps/draft/6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"apps",
+						"draft",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAppDraftToSent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4050f496-3754-47cf-882d-3fc43e7e3e5e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "1",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "GUTEN TAG!!!"
+				},
+				"url": {
+					"raw": "{{base_url}}/apps/6",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"apps",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setStatusAccepted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2126a37-7651-4025-8421-59a778a28331",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "2",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Accepted"
+				},
+				"url": {
+					"raw": "{{base_url}}/operator/apps/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"operator",
+						"apps",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setStatusDeclined",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ff428f9-bec2-4220-8bb8-efcd3a622ff4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "2",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "Declined"
+				},
+				"url": {
+					"raw": "{{base_url}}/operator/apps/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"operator",
+						"apps",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserRoleToOperator",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c7f4ddf9-acbf-4710-aebd-069e25244692",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "3",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/admin/users/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"admin",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
