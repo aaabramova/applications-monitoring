@@ -1,4 +1,4 @@
-package com.abramova.applications.monitoring;
+package com.abramova.applications.monitoring.enums;
 
 import org.springframework.security.core.GrantedAuthority;
 

@@ -1,6 +1,6 @@
 package com.abramova.applications.monitoring.entities;
 
-import com.abramova.applications.monitoring.Role;
+import com.abramova.applications.monitoring.enums.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

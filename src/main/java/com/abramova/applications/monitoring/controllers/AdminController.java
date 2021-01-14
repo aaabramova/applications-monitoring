@@ -1,29 +1,28 @@
 package com.abramova.applications.monitoring.controllers;
 
+import com.abramova.applications.monitoring.enums.Role;
 import com.abramova.applications.monitoring.entities.User;
-import com.abramova.applications.monitoring.repositories.UserRepo;
-import com.abramova.applications.monitoring.Role;
+import com.abramova.applications.monitoring.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@PreAuthorize("hasAuthority('ADMIN')")
 @RequestMapping("/admin/users")
 public class AdminController {
-
     @Autowired
-    private UserRepo userRepo;
+    private AdminService adminService;
 
-    @GetMapping("/page/{pageNumber}")
-    public List<User> getAllUsers(@PathVariable("pageNumber") int pageNumber) {
-        return userRepo.getAll(pageNumber);
+    @GetMapping("")
+    public Page<User> getAllUsers(@PageableDefault(sort = {"id"}, direction = Sort.Direction.ASC) Pageable pageable) {
+        return adminService.findAllUsers(pageable);
     }
 
     @PutMapping("/{userId}")
     public User updateUserRoleToOperator(@PathVariable("userId") long id) {
-        return userRepo.updateUserRole(id, Role.OPERATOR);
+        return adminService.updateUserRole(id, Role.OPERATOR);
     }
 }

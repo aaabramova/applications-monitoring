@@ -1,6 +1,6 @@
-package com.abramova.applications.monitoring.config;
+package com.abramova.applications.monitoring.security;
 
-import com.abramova.applications.monitoring.AuthenticationEntryPointImpl;
+import com.abramova.applications.monitoring.enums.Role;
 import com.abramova.applications.monitoring.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,8 +34,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.POST, "/reg").permitAll()
-                    //.antMatchers("/apps").hasRole(Role.USER.toString())
+                    .antMatchers(HttpMethod.POST, "/apps/signup").permitAll()
+                    .antMatchers("/apps/**").hasAuthority(Role.USER.toString())
+                    .antMatchers("/operator/**").hasAuthority(Role.OPERATOR.toString())
+                    .antMatchers("/admin/**").hasAuthority(Role.ADMIN.toString())
                     .anyRequest().authenticated()
                 .and()
                     .httpBasic()

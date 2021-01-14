@@ -1,6 +1,6 @@
 package com.abramova.applications.monitoring.entities;
 
-import com.abramova.applications.monitoring.Status;
+import com.abramova.applications.monitoring.enums.Status;
 
 import javax.persistence.*;
 import java.io.Serializable;
