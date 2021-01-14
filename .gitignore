@@ -13,7 +13,8 @@ dist/
 
 # Maven
 target/
-dist/
+mvnw
+mvnw.cmd
 
 # JetBrains IDE
 .idea/
